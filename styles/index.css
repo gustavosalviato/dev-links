@@ -3,7 +3,8 @@
     --text-color: #FFF;
     --surface-color: rgba(255, 255, 255, 0.1);
     --stroke-color: rgba(255, 255, 255, 0.5);
-    --highlight-color: rgba(255, 255, 255, 0.2);
+    --highlight-color: rgba(255, 255, 255, 0.05);
+    --switch-bg: url(../assets/moon.svg)
 }
 
 .light {
@@ -11,7 +12,8 @@
     --text-color: #000;
     --surface-color: rgba(0, 0, 0, 0.05);
     --stroke-color: rgba(0, 0, 0, 0.5);
-    --highlight-color: rgba(0, 0, 0, 0.02);
+    --highlight-color: rgba(0, 0, 0, 0.1);
+    --switch-bg: url(../assets/sun.svg)
 }
 
 * {
@@ -85,7 +87,7 @@ a {
 
 .list li {
     width: 100%;
-    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     text-align: center;
 }
 
@@ -98,15 +100,15 @@ a {
     padding: 1.6rem 2.4rem;
     border-radius: 8px;
 
-    border: 1px solid var(--stroke-color);
+    border: 2px solid var(--stroke-color);
     background: var(--surface-color);
     transition: all 200ms;
 }
 
 
 .list li a:hover {
-    border: 1.5px solid var(--text-color);
-    background: var(--stroke-color);
+    border: 2px solid var(--text-color);
+    background: var(--highlight-color);
 }
 
 
@@ -154,4 +156,53 @@ a {
 
 .footer a {
     text-decoration: underline;
+}
+
+
+.switch {
+    margin: 2.4rem auto;
+    position: relative;
+    width: 64px;
+}
+
+
+.switch-container {
+    position: relative;
+    background-color: yellow;
+    padding: 16px;
+
+}
+
+.switch button {
+    all: unset;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-image: var(--switch-bg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    transition: background 0.3s;
+
+
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.light .switch button {
+    left: initial;
+    right: 0;
+}
+
+.track {
+    width: 6.4rem;
+    height: 2.4rem;
+    background-color: red;
+    background-color: var(--surface-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 9999px;
 }
